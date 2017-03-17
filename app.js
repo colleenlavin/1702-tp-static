@@ -2,11 +2,12 @@ var express = require('express');
 
 //const sequelize = require('sequelize');
 const nunjucks = require('nunjucks');
-const routes = require('./routes/index');
+const routes = require('./routes');
 const models =  require('./models/index');
 var path = require('path');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
+
 
 var app = express();
 
@@ -19,6 +20,8 @@ app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 
 app.use(morgan('dev'))
+
+app.use( routes);
 
 app.use(function (req, res, next) {
 	var err = new Error('Not Found');
