@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var db = new Sequelize('postgres://localhost:5432/tripplanner');
+var db = new Sequelize('postgres://localhost:5433/tripplanner');
 
 var Place = db.define('place',{
     address:{type: Sequelize.STRING},
@@ -27,7 +27,7 @@ var Restaurant = db.define('restaurant',{
 Hotel.belongsTo(Place);
 Restaurant.belongsTo(Place);
 Activity.belongsTo(Place);
-
+db.sync();
 module.exports = {
     Place: Place,
     Hotel: Hotel,

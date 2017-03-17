@@ -21,7 +21,7 @@ app.engine('html', nunjucks.render);
 
 app.use(morgan('dev'))
 
-app.use( routes);
+app.use('/', routes);
 
 app.use(function (req, res, next) {
 	var err = new Error('Not Found');
@@ -32,7 +32,7 @@ app.use(function (req, res, next) {
 app.use(function (err, req, res, next) {
 	console.error(err)
 	res.status(500)
-	res.send(err, err.stack)
+	res.send()
 })
 
 app.listen(3000, function () {
