@@ -1,7 +1,21 @@
-<select> 
+<select>
     {% for hotel in hotels %}
     <option>
         {{hotel.name}}
+    </option>
+    {% endfor %}
+</select>
+<select>
+    {% for restaurant in restaurants %}
+    <option>
+        {{restaurant.name}}
+    </option>
+    {% endfor %}
+</select>
+<select>
+    {% for activity in activities %}
+    <option>
+        {{activity.name}}
     </option>
     {% endfor %}
 </select>
